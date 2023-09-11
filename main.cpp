@@ -7,8 +7,8 @@ int main() {
     cin >> x;
     double result;
     double temp = 1;
-    unsigned int factorial = 1;
-    unsigned int counter = 0;
+    int factorial = 1;
+    int counter = 0;
     while (temp >= pow(10, -5))
     {
         temp = (pow(x, counter)) / factorial;
