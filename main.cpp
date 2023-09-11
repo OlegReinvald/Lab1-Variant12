@@ -6,10 +6,10 @@ int main() {
     double x;
     cin >> x;
     double result;
-    double temp = 1;
-    int factorial = 1;
+    long double temp = 1;
+    unsigned long long factorial = 1;
     int counter = 0;
-    while (temp >= pow(10, -5))
+    while (temp >= pow(10, -10))
     {
         temp = (pow(x, counter)) / factorial;
         result += temp;
@@ -19,6 +19,6 @@ int main() {
         factorial *= counter;
     }
     double answ = (exp(x) + exp(-x)) / 2.0;
-    cout << setprecision(15) << result << "\n" << answ;
+    cout << setprecision(20) << result << "\n" << answ;
     return 0;
 }
