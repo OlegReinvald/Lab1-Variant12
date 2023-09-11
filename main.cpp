@@ -11,6 +11,10 @@ int main() {
     int counter = 0;
     while (temp >= pow(10, -10))
     {
+        if (isinf(pow(x, counter)))
+        {
+            break;
+        }
         temp = (pow(x, counter)) / factorial;
         result += temp;
         counter += 1;
@@ -23,7 +27,7 @@ int main() {
         }
         cout << counter << " . " << pow(x, counter) << " . " << temp << " . " << factorial << "\n";
     }
-    double answ = (exp(x) + exp(-x)) / 2.0;
+    long double answ = (exp(x) + exp(-x)) / 2.0;
     cout << setprecision(20) << result << "\n" << answ;
     return 0;
 }
