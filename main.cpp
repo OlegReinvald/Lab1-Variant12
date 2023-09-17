@@ -5,11 +5,13 @@ using namespace std;
 int main() {
     double x;
     cin >> x;
+    int k;
+    cin >> k;
     long double result;
     long double temp = 1;
     long double factorial = 1;
     int counter = 0;
-    while (temp >= pow(10, -10))
+    while (temp >= pow(10, -k))
     {
         if (isinf(pow(x, counter)))
         {
