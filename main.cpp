@@ -2,36 +2,40 @@
 #include <iomanip>
 #include <cmath>
 using namespace std;
+
+
+long double taylor_series_chx(double x, int k) {   // function for calculation using sum
+    long double result = 1;
+    long double term = 1;
+
+    for (int i = 1; term >= pow(10, -k); ++i) {
+        term = term * (x * x) / (2 * i * (2 * i - 1));
+        result += term;
+    }
+
+    return result;
+}
+
 int main() {
     double x;
-    cin >> x;
     int k;
+
+    cout << "Enter x: ";
+    cin >> x;
+
+    cout << "Enter k: ";
     cin >> k;
-    long double result;
-    long double temp = 1;
-    long double factorial = 1;
-    int counter = 0;
-    while (temp >= pow(10, -k))
-    {
-        if (isinf(pow(x, counter)))
-        {
-            break;
-        }
-        temp = (pow(x, counter)) / factorial;
-        if (isinf(result + temp)) {
-            break;
-        }
-        result += temp;
-        counter += 1;
-        factorial *= counter;
-        counter += 1;
-        factorial *= counter;
-        if (factorial == 0)
-        {
-            break;
-        }
-    }
+
+    long double sum = taylor_series_chx(x, k);
     long double answer = (exp(x) + exp(-x)) / 2.0;
-    cout << setprecision(20) << result << "\n" << answer;
+
+    cout << setprecision(20) << "Result of sum: " << sum << std::endl;
+    cout << setprecision(20) << "Strait calculation: "  << answer << std::endl;
+
+    if (fabs(sum - answer) < pow(10, -15)){
+        cout << "Numbers are equal";
+    } else{
+        cout << "Numbers ain't equal";
+    }
     return 0;
 }
